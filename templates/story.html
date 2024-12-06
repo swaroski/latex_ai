@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Story Generator</h1>
+        <form method="POST" action="/story_generator">
+            <div class="mb-3">
+                <label for="story_description" class="form-label">Enter a story prompt:</label>
+                <input type="text" class="form-control" id="story_description" name="story_description" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Generate Story</button>
+        </form>
+
+        {% if story_text %}
+        <div class="result mt-4">
+            <h4>Generated Story:</h4>
+            <p>{{ story_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
